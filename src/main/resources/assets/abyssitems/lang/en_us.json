@@ -1,0 +1,15 @@
+{
+  "itemGuard.abyssitems.itemRemoved": "§c[AbyssItems] §eThe item §f%s §eis not allowed and has been removed from your inventory.",
+
+  "itemGuard.abyssitems.reloadSuccess": "§a[AbyssItems] Config reloaded. §f%s §ablocked item(s) loaded.",
+
+  "itemGuard.abyssitems.listEmpty": "§e[AbyssItems] No items are currently blocked.",
+  "itemGuard.abyssitems.listHeader": "§a[AbyssItems] Blocked items (%s):",
+  "itemGuard.abyssitems.listEntry": "  §f- %s",
+
+  "itemGuard.abyssitems.checkBlocked": "§c[AbyssItems] §f%s §cIS blocked.",
+  "itemGuard.abyssitems.checkNotBlocked": "§a[AbyssItems] §f%s §ais NOT blocked.",
+  "itemGuard.abyssitems.checkInvalidId": "§c[AbyssItems] Invalid item ID: %s",
+
+  "itemGuard.abyssitems.scanFinished": "§a[AbyssItems] Scan complete. Removed §f%s §ablocked item stack(s) from online players."
+}
