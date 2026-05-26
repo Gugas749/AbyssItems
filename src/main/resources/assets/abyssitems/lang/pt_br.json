@@ -1,4 +1,5 @@
 {
+  "_comment_itemguard": "----- Item Guard ---------",
   "itemGuard.abyssitems.itemRemoved": "§c[AbyssItems] §eO item §f%s §enão é permitido e foi removido do seu inventário.",
 
   "itemGuard.abyssitems.reloadSuccess": "§a[AbyssItems] Configuração recarregada. §f%s §aitem(ns) bloqueado(s) carregado(s).",
@@ -11,5 +12,11 @@
   "itemGuard.abyssitems.checkNotBlocked": "§a[AbyssItems] §f%s §anão está bloqueado.",
   "itemGuard.abyssitems.checkInvalidId": "§c[AbyssItems] ID de item inválido: %s",
 
-  "itemGuard.abyssitems.scanFinished": "§a[AbyssItems] Verificação concluída. Removido(s) §f%s §aconjunto(s) de itens bloqueados dos jogadores online."
+  "itemGuard.abyssitems.scanFinished": "§a[AbyssItems] Verificação concluída. Removido(s) §f%s §aconjunto(s) de itens bloqueados dos jogadores online.",
+
+
+
+  "_comment_items": "----- Items ---------",
+  "creativetab.abyssitems": "Abyss Items",
+  "weapons.abyssitems.knife": "Faca do Marshmello"
 }
