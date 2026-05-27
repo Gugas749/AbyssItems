@@ -20,19 +20,12 @@ public class ItemGuardCommand {
         dispatcher.register(
             Commands.literal("itemguard")
                 .requires(source -> source.hasPermission(2))
-
-                .then(Commands.literal("reload")
-                    .executes(ItemGuardCommand::executeReload))
-
-                .then(Commands.literal("list")
-                    .executes(ItemGuardCommand::executeList))
-
+                .then(Commands.literal("reload").executes(ItemGuardCommand::executeReload))
+                .then(Commands.literal("list").executes(ItemGuardCommand::executeList))
                 .then(Commands.literal("check")
                     .then(Commands.argument("item_id", StringArgumentType.word())
                         .executes(ItemGuardCommand::executeCheck)))
-
-                .then(Commands.literal("scan")
-                    .executes(ItemGuardCommand::executeScan))
+                .then(Commands.literal("scan").executes(ItemGuardCommand::executeScan))
         );
     }
 
@@ -40,7 +33,7 @@ public class ItemGuardCommand {
         BlockedItemsConfig.load();
         int count = BlockedItemsConfig.getBlockedItems().size();
         ctx.getSource().sendSuccess(
-            () -> Component.translatable("itemGuard.abyssitems.reloadSuccess", count),
+            () -> Component.translatable("itemGuard.abyssitems.reloadSuccess", String.valueOf(count)),
             true
         );
         return 1;
@@ -53,17 +46,18 @@ public class ItemGuardCommand {
                 () -> Component.translatable("itemGuard.abyssitems.listEmpty"),
                 false
             );
-        } else {
+            return 0;
+        }
+
+        ctx.getSource().sendSuccess(
+            () -> Component.translatable("itemGuard.abyssitems.listHeader", String.valueOf(blocked.size())),
+            false
+        );
+        for (ResourceLocation rl : blocked) {
             ctx.getSource().sendSuccess(
-                () -> Component.translatable("itemGuard.abyssitems.listHeader", blocked.size()),
+                () -> Component.translatable("itemGuard.abyssitems.listEntry", rl.toString()),
                 false
             );
-            for (ResourceLocation rl : blocked) {
-                ctx.getSource().sendSuccess(
-                    () -> Component.translatable("itemGuard.abyssitems.listEntry", rl),
-                    false
-                );
-            }
         }
         return blocked.size();
     }
@@ -75,10 +69,8 @@ public class ItemGuardCommand {
             boolean isBlocked = BlockedItemsConfig.isBlocked(rl);
             ctx.getSource().sendSuccess(
                 () -> Component.translatable(
-                    isBlocked
-                        ? "itemGuard.abyssitems.checkBlocked"
-                        : "itemGuard.abyssitems.checkNotBlocked",
-                    rl
+                    isBlocked ? "itemGuard.abyssitems.checkBlocked" : "itemGuard.abyssitems.checkNotBlocked",
+                    rl.toString()
                 ),
                 false
             );
@@ -100,13 +92,14 @@ public class ItemGuardCommand {
 
             var inventory = player.getInventory();
             for (int i = 0; i < inventory.getContainerSize(); i++) {
-                var stack = inventory.getItem(i);
+                ItemStack stack = inventory.getItem(i);
                 if (stack.isEmpty()) continue;
-                var itemId = BuiltInRegistries.ITEM.getKey(stack.getItem());
+                ResourceLocation itemId = BuiltInRegistries.ITEM.getKey(stack.getItem());
                 if (BlockedItemsConfig.isBlocked(itemId)) {
                     inventory.setItem(i, ItemStack.EMPTY);
-                    player.sendSystemMessage(
-                        Component.translatable("itemGuard.abyssitems.itemRemoved", itemId)
+                    player.displayClientMessage(
+                        Component.translatable("itemGuard.abyssitems.itemRemoved", itemId.toString()),
+                        false
                     );
                     removedTotal++;
                 }
@@ -115,7 +108,7 @@ public class ItemGuardCommand {
 
         final int finalCount = removedTotal;
         ctx.getSource().sendSuccess(
-            () -> Component.translatable("itemGuard.abyssitems.scanFinished", finalCount),
+            () -> Component.translatable("itemGuard.abyssitems.scanFinished", String.valueOf(finalCount)),
             true
         );
         return 1;

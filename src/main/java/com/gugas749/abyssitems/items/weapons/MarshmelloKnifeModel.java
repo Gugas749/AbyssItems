@@ -11,7 +11,7 @@ public class MarshmelloKnifeModel extends DefaultedItemGeoModel<MarshmelloKnifeI
 
     @Override
     public ResourceLocation getModelResource(MarshmelloKnifeItem animatable) {
-        return ResourceLocation.fromNamespaceAndPath(Abyssitems.MODID, "geo/item/marshmello_knife.geo.json");
+        return ResourceLocation.fromNamespaceAndPath(Abyssitems.MODID, "geo/item/marshmello_knife_geo.json");
     }
 
     @Override

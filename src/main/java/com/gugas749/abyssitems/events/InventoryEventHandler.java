@@ -11,39 +11,28 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.util.TriState;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.player.ItemEntityPickupEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
-import net.neoforged.neoforge.event.entity.player.ItemEntityPickupEvent;
 
 public class InventoryEventHandler {
 
-    /**
-     * Fired every server tick per player — scans the full inventory and removes blocked items.
-     */
     @SubscribeEvent
     public void onPlayerTick(PlayerTickEvent.Post event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
-
-        // Only enforce on non-ops (permission level < 2 = no OP commands)
         if (player.hasPermissions(2)) return;
 
-        // Scan main inventory + armor + offhand
         var inventory = player.getInventory();
-        boolean removed = false;
-
         for (int i = 0; i < inventory.getContainerSize(); i++) {
             ItemStack stack = inventory.getItem(i);
             if (stack.isEmpty()) continue;
-
             ResourceLocation itemId = getItemId(stack.getItem());
             if (BlockedItemsConfig.isBlocked(itemId)) {
                 inventory.setItem(i, ItemStack.EMPTY);
-                removed = true;
                 sendWarning(player, itemId);
             }
         }
 
-        // Also check cursor slot (item held by mouse in open container)
         ItemStack cursor = player.containerMenu.getCarried();
         if (!cursor.isEmpty()) {
             ResourceLocation itemId = getItemId(cursor.getItem());
@@ -54,10 +43,6 @@ public class InventoryEventHandler {
         }
     }
 
-    /**
-     * Fired when a player tries to pick up an item entity from the ground.
-     * Cancels the pickup and destroys the item entity if blocked.
-     */
     @SubscribeEvent
     public void onItemPickup(ItemEntityPickupEvent.Pre event) {
         if (!(event.getPlayer() instanceof ServerPlayer player)) return;
@@ -70,15 +55,11 @@ public class InventoryEventHandler {
         ResourceLocation itemId = getItemId(stack.getItem());
         if (BlockedItemsConfig.isBlocked(itemId)) {
             event.setCanPickup(TriState.FALSE);
-            itemEntity.discard(); // Remove the item from the world too
+            itemEntity.discard();
             sendWarning(player, itemId);
         }
     }
 
-    /**
-     * Fired when an item entity spawns in the world.
-     * Destroys it immediately if it's a blocked item — prevents it from sitting on the ground.
-     */
     @SubscribeEvent
     public void onItemEntitySpawn(EntityJoinLevelEvent event) {
         if (event.getLevel().isClientSide()) return;
@@ -87,15 +68,11 @@ public class InventoryEventHandler {
         ItemStack stack = itemEntity.getItem();
         if (stack.isEmpty()) return;
 
-        ResourceLocation itemId = getItemId(stack.getItem());
-        if (BlockedItemsConfig.isBlocked(itemId)) {
-            event.setCanceled(true); // Prevent the item entity from joining the world
+        if (BlockedItemsConfig.isBlocked(getItemId(stack.getItem()))) {
+            event.setCanceled(true);
         }
     }
 
-    /**
-     * Fired when a player logs in — do an immediate inventory scan.
-     */
     @SubscribeEvent
     public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
@@ -120,8 +97,9 @@ public class InventoryEventHandler {
     }
 
     private static void sendWarning(ServerPlayer player, ResourceLocation itemId) {
-        player.sendSystemMessage(
-            Component.translatable("itemGuard.abyssitems.itemRemoved", itemId)
+        player.displayClientMessage(
+            Component.translatable("itemGuard.abyssitems.itemRemoved", itemId.toString()),
+            false
         );
     }
 }
