@@ -1,0 +1,8 @@
+{
+  "loader": "neoforge:item_layers",
+  "parent": "minecraft:item/generated",
+  "render_type": "cutout",
+  "textures": {
+    "layer0": "abyssitems:item/top_part_key"
+  }
+}

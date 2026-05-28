@@ -8,6 +8,15 @@
         "class": "com/gugas749/abyssitems/items/utils/AbyssRarities",
         "field": "MARSHMELLO_RARITY"
       }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "ABYSSITEMS_RARITY_VOID",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/gugas749/abyssitems/items/utils/AbyssRarities",
+        "field": "VOID_RARITY"
+      }
     }
   ]
 }

@@ -1,4 +1,4 @@
-package com.gugas749.abyssitems.items.weapons;
+package com.gugas749.abyssitems.items.weapons.marshknife;
 
 import com.gugas749.abyssitems.Abyssitems;
 import net.minecraft.resources.ResourceLocation;

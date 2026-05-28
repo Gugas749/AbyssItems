@@ -16,5 +16,13 @@
 
   "_comment_items": "----- Items ---------",
   "creativetab.abyssitems": "Abyss Items",
-  "weapons.abyssitems.knife": "Marshmello knife"
+  "weapons.abyssitems.knife": "Marshmello knife",
+  "item.abyssitems.complete_key": "Complete key",
+  "item.abyssitems.complete_key.tooltip": "A strange looking key that emanates a strange aura... ",
+  "item.abyssitems.top_part_key": "Top part key",
+  "item.abyssitems.top_part_key.tooltip": "A top part of a key?",
+  "item.abyssitems.middle_part_key": "Middle part key",
+  "item.abyssitems.middle_part_key.tooltip": "A middle part of a key?",
+  "item.abyssitems.bottom_part_key": "Bottom part key",
+  "item.abyssitems.bottom_part_key.tooltip": "A bottom part of a key?"
 }

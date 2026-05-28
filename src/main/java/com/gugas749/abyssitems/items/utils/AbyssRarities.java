@@ -13,4 +13,10 @@ public class AbyssRarities {
             "abyssitems:marshmello",
             (UnaryOperator<Style>) ((style) -> style.withColor(0x00FFFF))
     );
+
+    public static final EnumProxy<Rarity> VOID_RARITY = new EnumProxy<>(Rarity.class,
+            -1,
+            "abyssitems:void",
+            (UnaryOperator<Style>) ((style) -> style.withColor(0x00FFFF))
+    );
 }

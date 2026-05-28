@@ -15,7 +15,7 @@ public class AbyssCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TAB =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Abyssitems.MODID);
 
-    public static final Supplier<CreativeModeTab> ABYSS_ITEMS = CREATIVE_MODE_TAB.register("sf_items",
+    public static final Supplier<CreativeModeTab> ABYSS_ITEMS = CREATIVE_MODE_TAB.register("abyss_items",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ItemsRegistry.MARSHMELLO_KNIFE.get()))
                     .title(Component.translatable("creativetab.abyssitems"))
                     .displayItems((itemDisplayParameters, output) -> {
@@ -24,6 +24,17 @@ public class AbyssCreativeModeTabs {
                          */
 
                         output.accept(ItemsRegistry.MARSHMELLO_KNIFE.get());
+
+
+
+                        /*
+                         *** ITEMS
+                         */
+
+                        output.accept(ItemsRegistry.COMPLETE_KEY.get());
+                        output.accept(ItemsRegistry.TOP_PART_KEY.get());
+                        output.accept(ItemsRegistry.MIDDLE_PART_KEY.get());
+                        output.accept(ItemsRegistry.BOTTOM_PART_KEY.get());
 
                     }).build());
 

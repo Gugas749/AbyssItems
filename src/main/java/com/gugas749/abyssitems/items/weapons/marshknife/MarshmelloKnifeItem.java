@@ -1,4 +1,4 @@
-package com.gugas749.abyssitems.items.weapons;
+package com.gugas749.abyssitems.items.weapons.marshknife;
 
 import com.gugas749.abyssitems.items.utils.AbyssRarities;
 import com.gugas749.abyssitems.items.utils.WeaponsTiers;
@@ -10,7 +10,6 @@ import net.minecraft.world.item.SwordItem;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.client.GeoRenderProvider;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
 

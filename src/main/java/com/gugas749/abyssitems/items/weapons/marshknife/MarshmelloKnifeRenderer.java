@@ -1,12 +1,10 @@
-package com.gugas749.abyssitems.items.weapons;
+package com.gugas749.abyssitems.items.weapons.marshknife;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoItemRenderer;
 
 public class MarshmelloKnifeRenderer extends GeoItemRenderer<MarshmelloKnifeItem> {
