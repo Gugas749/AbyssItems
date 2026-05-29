@@ -1,6 +1,7 @@
 package com.gugas749.abyssitems.items.registrie;
 
 import com.gugas749.abyssitems.Abyssitems;
+import com.gugas749.abyssitems.items.equipable.curios.voidessence.VoidEssenceItem;
 import com.gugas749.abyssitems.items.normalitems.keys.BottomPartKeyItem;
 import com.gugas749.abyssitems.items.normalitems.keys.CompleteKeyItem;
 import com.gugas749.abyssitems.items.normalitems.keys.MiddlePartKeyItem;
@@ -33,6 +34,8 @@ public class ItemsRegistry {
             ("middle_part_key", MiddlePartKeyItem::new);
     public static final DeferredHolder<Item, Item> BOTTOM_PART_KEY = ITEMS.register
             ("bottom_part_key", BottomPartKeyItem::new);
+    public static final DeferredHolder<Item, Item> VOID_ESSENCE = ITEMS.register
+            ("void_essence", VoidEssenceItem::new);
 
 
 

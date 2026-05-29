@@ -24,5 +24,9 @@
   "item.abyssitems.middle_part_key": "Middle part key",
   "item.abyssitems.middle_part_key.tooltip": "A middle part of a key?",
   "item.abyssitems.bottom_part_key": "Bottom part key",
-  "item.abyssitems.bottom_part_key.tooltip": "A bottom part of a key?"
+  "item.abyssitems.bottom_part_key.tooltip": "A bottom part of a key?",
+  "item.abyssitems.void_essence": "Void essence",
+  "item.abyssitems.void_essence.tooltip1": "A item that has a unknow power but you can feel that it is stronger than anything you have seen before.",
+  "item.abyssitems.void_essence.tooltip2": "This item calls for you to use it.. but you feel that you are gonna get corrupted the more you use it...",
+  "item.abyssitems.void_essence.attribute.evasive": "Dodge chance"
 }

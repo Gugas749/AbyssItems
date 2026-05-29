@@ -35,6 +35,7 @@ public class AbyssCreativeModeTabs {
                         output.accept(ItemsRegistry.TOP_PART_KEY.get());
                         output.accept(ItemsRegistry.MIDDLE_PART_KEY.get());
                         output.accept(ItemsRegistry.BOTTOM_PART_KEY.get());
+                        output.accept(ItemsRegistry.VOID_ESSENCE.get());
 
                     }).build());
 

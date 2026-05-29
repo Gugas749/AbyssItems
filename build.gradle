@@ -101,6 +101,12 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 dependencies {
     implementation "curse.maven:lodestone-616457:7264731"
     implementation "curse.maven:geckolib-388172:7707149"
+    implementation "curse.maven:curios-309927:6342656"
+
+    implementation "curse.maven:player_animator-658587:6024462"
+    implementation "curse.maven:irons_spells_n_spellbooks-855414:7907341"
+    implementation "curse.maven:iron_lib-1492763:7907336"
+    implementation "curse.maven:aces-spell-utils-1299492:8079666"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

@@ -3,6 +3,9 @@ package com.gugas749.abyssitems;
 import com.gugas749.abyssitems.commands.ItemGuardCommand;
 import com.gugas749.abyssitems.config.BlockedItemsConfig;
 import com.gugas749.abyssitems.events.InventoryEventHandler;
+import com.gugas749.abyssitems.items.equipable.curios.voidessence.CorruptionCommand;
+import com.gugas749.abyssitems.items.equipable.curios.voidessence.CorruptionEventHandler;
+import com.gugas749.abyssitems.items.equipable.curios.voidessence.CorruptionRegistry;
 import com.gugas749.abyssitems.items.registrie.AbyssCreativeModeTabs;
 import com.gugas749.abyssitems.items.registrie.ItemsRegistry;
 import com.mojang.logging.LogUtils;
@@ -24,8 +27,10 @@ public class Abyssitems {
         //--------
         NeoForge.EVENT_BUS.register(new InventoryEventHandler());
         NeoForge.EVENT_BUS.addListener(this::onRegisterCommands);
+        NeoForge.EVENT_BUS.register(new CorruptionEventHandler());
         //--------
         ItemsRegistry.register(modEventBus);
+        CorruptionRegistry.register(modEventBus);
         //--------
         AbyssCreativeModeTabs.register(modEventBus);
         //--------
@@ -40,5 +45,6 @@ public class Abyssitems {
 
     private void onRegisterCommands(RegisterCommandsEvent event) {
         ItemGuardCommand.register(event.getDispatcher());
+        CorruptionCommand.register(event.getDispatcher());
     }
 }
