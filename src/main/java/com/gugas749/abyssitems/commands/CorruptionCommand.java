@@ -1,5 +1,6 @@
-package com.gugas749.abyssitems.items.equipable.curios.voidessence;
+package com.gugas749.abyssitems.commands;
 
+import com.gugas749.abyssitems.items.equipable.curios.voidessence.CorruptionRegistry;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
@@ -38,8 +39,7 @@ public class CorruptionCommand {
         ServerPlayer target = EntityArgument.getPlayer(ctx, "player");
         int corruption = target.getData(CorruptionRegistry.CORRUPTION).getCorruption();
         ctx.getSource().sendSuccess(
-            () -> Component.literal("§5[Corruption] §f" + target.getName().getString()
-                    + " §7corruption: §d" + corruption + "%"),
+            () -> Component.translatable("command.abyssitems.check_corruption", target.getName().getString(), corruption),
             false
         );
         return corruption;
@@ -50,8 +50,7 @@ public class CorruptionCommand {
         int value = IntegerArgumentType.getInteger(ctx, "value");
         target.getData(CorruptionRegistry.CORRUPTION).setCorruption(value);
         ctx.getSource().sendSuccess(
-            () -> Component.literal("§5[Corruption] §fSet §f" + target.getName().getString()
-                    + "§7's corruption to §d" + value + "%"),
+                () -> Component.translatable("command.abyssitems.set_corruption", target.getName().getString(), value),
             true
         );
         return value;
@@ -62,8 +61,7 @@ public class CorruptionCommand {
         target.getData(CorruptionRegistry.CORRUPTION).setCorruption(0);
         target.getData(CorruptionRegistry.CORRUPTION).resetTickCounter();
         ctx.getSource().sendSuccess(
-            () -> Component.literal("§5[Corruption] §fReset §f" + target.getName().getString()
-                    + "§7's corruption to §d0%"),
+            () -> Component.translatable("command.abyssitems.reset_corruption", target.getName().getString()),
             true
         );
         return 1;

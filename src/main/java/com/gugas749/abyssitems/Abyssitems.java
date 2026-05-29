@@ -3,7 +3,7 @@ package com.gugas749.abyssitems;
 import com.gugas749.abyssitems.commands.ItemGuardCommand;
 import com.gugas749.abyssitems.config.BlockedItemsConfig;
 import com.gugas749.abyssitems.events.InventoryEventHandler;
-import com.gugas749.abyssitems.items.equipable.curios.voidessence.CorruptionCommand;
+import com.gugas749.abyssitems.commands.CorruptionCommand;
 import com.gugas749.abyssitems.items.equipable.curios.voidessence.CorruptionEventHandler;
 import com.gugas749.abyssitems.items.equipable.curios.voidessence.CorruptionRegistry;
 import com.gugas749.abyssitems.items.registrie.AbyssCreativeModeTabs;

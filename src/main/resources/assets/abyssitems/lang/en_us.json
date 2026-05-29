@@ -28,5 +28,11 @@
   "item.abyssitems.void_essence": "Void essence",
   "item.abyssitems.void_essence.tooltip1": "A item that has a unknow power but you can feel that it is stronger than anything you have seen before.",
   "item.abyssitems.void_essence.tooltip2": "This item calls for you to use it.. but you feel that you are gonna get corrupted the more you use it...",
-  "item.abyssitems.void_essence.attribute.evasive": "Dodge chance"
+  "item.abyssitems.void_essence.attribute.evasive": "Dodge chance",
+
+
+  "_comment_corruption": "----- Corruption ---------",
+  "command.abyssitems.check_corruption": "§5[Corruption] §f%s §7corruption: §d%s%",
+  "command.abyssitems.set_corruption": "§5[Corruption] §fSet §f%s§7's corruption to §d%s%",
+  "command.abyssitems.reset_corruption": "§5[Corruption] §fReset §f%s§7's corruption to §d0%"
 }

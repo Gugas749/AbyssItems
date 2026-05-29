@@ -42,7 +42,7 @@ public class CorruptionEventHandler {
                         EFFECT_DURATION,
                         strengthLevel,
                         false,  // not ambient (no particles reduction)
-                        true,   // show particles
+                        false,   // show particles
                         true    // show icon
                 ));
             }
@@ -65,8 +65,17 @@ public class CorruptionEventHandler {
     }
 
     private static boolean isWearingVoidEssence(ServerPlayer player) {
-        return CuriosApi.getCuriosInventory(player).map(inv ->
-            inv.findFirstCurio(ItemsRegistry.VOID_ESSENCE.get()).isPresent()
-        ).orElse(false);
+        return CuriosApi.getCuriosInventory(player).map(inv -> {
+            var allCurios = inv.getCurios();
+            for (var entry : allCurios.entrySet()) {
+                var stacks = entry.getValue().getStacks();
+                for (int i = 0; i < stacks.getSlots(); i++) {
+                    if (stacks.getStackInSlot(i).is(ItemsRegistry.VOID_ESSENCE.get())) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }).orElse(false);
     }
 }

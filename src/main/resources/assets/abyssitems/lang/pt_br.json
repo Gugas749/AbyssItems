@@ -18,5 +18,22 @@
 
   "_comment_items": "----- Items ---------",
   "creativetab.abyssitems": "Abyss Items",
-  "weapons.abyssitems.knife": "Faca do Marshmello"
+  "weapons.abyssitems.knife": "Faca do Marshmello",
+  "item.abyssitems.complete_key": "Chave completa",
+  "item.abyssitems.complete_key.tooltip": "Uma chave estranha que emana uma aura misteriosa...",
+  "item.abyssitems.top_part_key": "Parte superior da chave",
+  "item.abyssitems.top_part_key.tooltip": "A parte superior de uma chave?",
+  "item.abyssitems.middle_part_key": "Parte do meio da chave",
+  "item.abyssitems.middle_part_key.tooltip": "A parte do meio de uma chave?",
+  "item.abyssitems.bottom_part_key": "Parte inferior da chave",
+  "item.abyssitems.bottom_part_key.tooltip": "A parte inferior de uma chave?",
+  "item.abyssitems.void_essence": "Essência do Vazio",
+  "item.abyssitems.void_essence.tooltip1": "Um item com um poder desconhecido, mas você consegue sentir que é mais forte do que qualquer coisa que já viu antes.",
+  "item.abyssitems.void_essence.tooltip2": "Este item clama para que você o use... mas você sente que vai se corromper cada vez mais ao utilizá-lo...",
+  "item.abyssitems.void_essence.attribute.evasive": "Chance de esquiva",
+
+  "_comment_corruption": "----- Corruption ---------",
+  "command.abyssitems.check_corruption": "§5[Corrupção] §f%s §7corrupção: §d%s%",
+  "command.abyssitems.set_corruption": "§5[Corrupção] §fDefinir §f%s§7's corrupção para §d%s%",
+  "command.abyssitems.reset_corruption": "§5[Corrupção] §fResetar §f%s§7's corrupção para §d0%"
 }
